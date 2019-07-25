@@ -3,6 +3,7 @@ import random
 import os
 
 
+# Make random size of our png image
 def resizer(arrow_path, img_path):
     arrow = Image.open(arrow_path)
     img = Image.open(img_path)
@@ -15,6 +16,8 @@ def resizer(arrow_path, img_path):
         resizer(arrow_path, img_path)
 
 
+# Make random angle, random location of our png and
+# impose onto our jpg image
 def image_maker(arrow_path, img_path):
     img = Image.open(img_path)
     resized_arrow = resizer(arrow_path, img_path)
@@ -38,7 +41,10 @@ def image_maker(arrow_path, img_path):
 
 def main():
 
+    #                 Path of directory with jpg images
     path_to_images = "C:\\Users\\fzhil\\Desktop\\dataSet_Good\\image_data1\\forest"
+
+    #                 Path of directory with png images
     path_to_arrows = "C:\\Users\\fzhil\\Desktop\\Arrows"
 
     image_names = os.listdir(path_to_images)
@@ -58,6 +64,7 @@ def main():
 
         img = image_maker(full_path_to_arrow, full_path_to_img)
 
+        #        Path to save
         img.save("C:\\Users\\fzhil\\Desktop\\with_handmade_arrows\\zakl_forest1_" + str(counter) + ".jpg")
         counter += 1
 
